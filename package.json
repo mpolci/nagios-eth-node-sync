@@ -1,0 +1,17 @@
+{
+  "name": "nagios-eth-node-sync",
+  "version": "1.0.0",
+  "description": "Nagios plugin to check latest block age",
+  "main": "index.js",
+  "bin": {
+    "check_eth_node_sync": "./index.js"
+  },
+  "author": "Marco Polci",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promisify": "^5.0.0",
+    "nagios-plugin": "^0.1.2",
+    "node-getopt": "^0.2.3",
+    "web3": "^0.17.0-beta"
+  }
+}
