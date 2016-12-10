@@ -69,7 +69,8 @@ Promise.resolve()
     end()
   })
   .catch((err) => {
-    o.addMessage(o.states.UNKNOWN, err.message || err.toString())
+    const message = (err.message || err.toString()).replace(/("[^\\]*)\\n.*/, '$1"')
+    o.addMessage(o.states.UNKNOWN, message)
     end()
   })
 
