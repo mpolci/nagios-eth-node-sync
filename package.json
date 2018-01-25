@@ -1,6 +1,6 @@
 {
   "name": "nagios-eth-node-sync",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nagios plugin to check latest block age",
   "main": "index.js",
   "bin": {
@@ -12,6 +12,6 @@
     "es6-promisify": "^5.0.0",
     "nagios-plugin": "^0.1.2",
     "node-getopt": "^0.2.3",
-    "web3": "^0.17.0-beta"
+    "web3": "^0.20.4"
   }
 }
