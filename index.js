@@ -8,7 +8,7 @@ const getOpt = require('node-getopt')
     [ 'w', 'warning=<STRING>', 'Warning threshold' ],
     [ 'c', 'critical=<STRING>', 'Critical threshold' ],
     [ 'e', 'endpoint=<STRING>', 'Ethereum rpc endpoint (default http://localhost:8545)' ],
-    [ 't', 'timeout=<STRING>', 'Timeout in ms (default 20000)' ],
+    [ 't', 'timeout=<STRING>', 'Timeout in seconds (default 60)' ],
     [ 'h', 'help', 'display this help' ]
   ])
   .bindHelp()
@@ -36,10 +36,11 @@ const provider = endpoint.match(/^http(s)?:/)
   : new Web3.providers.IpcProvider(endpoint, require('net'))
 const web3 = new Web3(provider)
 
+const ms = args.options.timeout ? args.options.timeout * 1000 : 60000
 const timeout = setTimeout(() => {
   o.addMessage(o.states.UNKNOWN, 'RPC timeout')
   end()
-}, 20000)
+}, ms)
 
 const getBlock = promisify(web3.eth.getBlock)
 let age, latestTimestamp
